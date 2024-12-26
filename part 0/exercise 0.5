@@ -1,10 +1,24 @@
-Part 0--> Excercise 0.5
-
+Part 0--> Exercise 0.5
   participant browser
   participant server
 
-  browser--> server: POST  https://studies.cs.helsinki.fi/exampleapp/new_note_spa
+  browser--> server: GET https://studies.cs.helsinki.fi/exampleapp/spa
+  activate server
+  server--> browser: send HTML document
+  deactivate server
 
-  The JavaScript code fetches data from the server
-  the data in json format is:
-  {"content":"Don't know what I'm doing but here we go", "date":"2024-12-26T13:33:04.858Z"}
+  browser--> server: GET https://studies.cs.helsinki.fi/exampleapp/main.css
+  activate server
+  server--> browser: send CSS stylesheet
+  deactivate server
+
+  browser--> server: GET https://studies.cs.helsinki.fi/exampleapp/spa.js
+  activate server
+  server--> browser: send JS script
+  deactivate server
+
+  browser--> server: GET https://studies.cs.helsinki.fi/exampleapp/data.json
+  activate server
+  server--> browser: send JSON data already on the page
+  deactivate server
+
